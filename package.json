@@ -1,0 +1,28 @@
+{
+  "name": "apitest07",
+  "version": "1.0.0",
+  "description": "Test Div API",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon sever.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kittipong6306021630013/APITEST07.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kittipong6306021630013/APITEST07/issues"
+  },
+  "homepage": "https://github.com/Kittipong6306021630013/APITEST07#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongoose": "^6.2.8"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.0",
+    "nodemon": "^2.0.15"
+  }
+}
