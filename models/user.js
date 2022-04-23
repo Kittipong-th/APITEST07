@@ -14,8 +14,4 @@ const userSchema = new mongoose.Schema({
         
   })
 
-//สร้างโมเดล
-let Users = mongoose.model("User",userSchema)
-
-//ส่งออกโมเดล
-module.exports = Users
+  module.exports = mongoose.model('User',userSchema)
