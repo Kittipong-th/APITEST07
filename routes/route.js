@@ -62,7 +62,7 @@ router.post('/upload-scb',upload.single('scb'),(req,res) => {
   
 
 //index
-router.get('/',isLoggedIn,(req,res)=>{
+router.get('/',(req,res)=>{
     res.render('index',{user:req.session.user})
 })
 
@@ -102,9 +102,9 @@ router.post('/login',async (req, res) => {
     })
     if (user){
         req.session.user = user
-        res.render('index',{user})
+        return res.render('index',{user})
     }else{
-        res.render('login')
+        return res.render('login')
     }
 })
 
