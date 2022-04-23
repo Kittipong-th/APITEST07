@@ -1,19 +1,20 @@
-
 const mongoose = require('mongoose')
 
-
 const userSchema = new mongoose.Schema({
-    userID: String,
-    password: String,
-    name:String,
-    room:Number,
-    elec_use:Number,
-    roomate:Number,
-    Status:false,
-    image : String
-        
-  })
-
+  userID: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true
+  },
+  subscribeDate: {
+    type: Date,
+    required: true,
+    default: Date.now
+  }
+})
 //สร้างโมเดล
 let Users = mongoose.model("User",userSchema)
 

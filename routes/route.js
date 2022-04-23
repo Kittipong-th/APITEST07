@@ -62,7 +62,7 @@ router.post('/upload-scb',upload.single('scb'),(req,res) => {
   
 
 //index
-router.get('/',(req,res)=>{
+router.get('/',isLoggedIn,(req,res)=>{
     res.render('index',{user:req.session.user})
 })
 
