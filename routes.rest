@@ -18,7 +18,7 @@ Content-Type: application/json
 POST http://localhost:3000/upload
 
 ###
-POST http://apiproject.app.ruk-com.cloud/register
+POST http://apiproject.app.ruk-com.cloud//register
 Content-Type: application/json
 
 {
