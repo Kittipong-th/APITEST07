@@ -1,20 +1,21 @@
+
 const mongoose = require('mongoose')
 
+
 const userSchema = new mongoose.Schema({
-  UserID: {
-    type: String,
-    required: true
-  },
-  subscribedToChannel: {
-    type: String,
-    required: true
-  },
-  subscribeDate: {
-    type: Date,
-    required: true,
-    default: Date.now
-  }
-})
+    userID: String,
+    password: String,
+    name:String,
+    room:Number,
+    elec_use:Number,
+    roomate:Number,
+    Status:false,
+    image : String
+        
+  })
 
+//สร้างโมเดล
+let Users = mongoose.model("User",userSchema)
 
-module.exports = mongoose.model('User',userSchema)
+//ส่งออกโมเดล
+module.exports = Users
