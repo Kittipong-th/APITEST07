@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose')
 
 
@@ -11,7 +10,7 @@ const userSchema = new mongoose.Schema({
     roomate:Number,
     Status:false,
     image : String
-        
+
   })
 
 //สร้างโมเดล
