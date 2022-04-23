@@ -7,7 +7,12 @@ Content-Type: application/json
 {
     "userID": "6306021630013@fitm.kmutnb.ac.th",
     "password": "123",
-    
+    "name": "กิตติพงษ์",
+    "room": 506,
+    "elec_use":1000,
+    "roomate":4,
+    "Status":false,
+    "image" : ""
 }
 ###
 GET http://apiproject.app.ruk-com.cloud
@@ -19,5 +24,10 @@ Content-Type: application/json
 {
     "userID": "6306021639876@fitm.kmutnb.ac.th",
     "password": "pwd9876",
-   
+    "name": "test",
+    "room": 216,
+    "elec_use":145,
+    "roomate":1,
+    "Status":false,
+    "image" : ""
 }
