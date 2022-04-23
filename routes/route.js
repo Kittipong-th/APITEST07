@@ -71,13 +71,9 @@ router.get('/',isLoggedIn,(req,res)=>{
 router.post('/register', async (req, res) => {
     const user = new User({
         userID: req.body.userID,
-        password : req.body.password,
-        name : req.body.name,
-        room : req.body.room,
-        elec_use:req.body.elec_use,
-        roomate:req.body.roomate,
-        Status: req.body.Status,
-        image : req.body.image
+        password : req.body.password
+        
+        
     })
     try {
         const newUser = await user.save()
