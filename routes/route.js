@@ -102,9 +102,9 @@ router.post('/login',async (req, res) => {
     })
     if (user){
         req.session.user = user
-        return res.render('index',{user})
+        res.render('index',{user})
     }else{
-        return res.render('login')
+        res.render('login')
     }
 })
 
