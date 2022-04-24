@@ -18,7 +18,7 @@ Content-Type: application/json
 GET http://apiproject.app.ruk-com.cloud
 
 ###
-POST http://apiproject.app.ruk-com.cloud/login
+POST http://apiproject.app.ruk-com.cloud/register
 Content-Type: application/json
 
 {
