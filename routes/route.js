@@ -6,7 +6,7 @@ const User = require('../models/user')
 
 //hash password
 const bcrypt = require('bcrypt')
-const { redirect, get } = require('express/lib/response')
+
 
 //middleware
 const isLoggedIn = (req, res, next) => {
@@ -56,14 +56,18 @@ router.get('/login',(req,res)=>{
 router.post('/login',async (req, res) => {
     const{userID,password} = req.body
     const user = await User.findOne({
-        userID,
-        password
+        userID
+      
     })
     console.log(userID)
     console.log(password)
+
     if (user){
-        req.session.user = user
-        return res.render('index',{user})
+        const isCorrect = bcrypt.compareSync(password,user.password) 
+        if(isCorrect){
+            req.session.user = user
+            return res.render('index',{user})
+        }
     }else{
         return res.render('login')
     }
