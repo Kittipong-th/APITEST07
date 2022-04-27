@@ -8,10 +8,10 @@ Content-Type: application/json
     "userID": "6306021630013@fitm.kmutnb.ac.th",
     "password": "123",
     "name": "กิตติพงษ์",
-    "room": 506,
     "elec_use":1000,
     "roomate":4,
     "Status":false,
+    "room": 506,
     "image" : ""
 }
 ###

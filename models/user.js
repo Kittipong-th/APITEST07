@@ -16,21 +16,24 @@ const userSchema = new mongoose.Schema({
       type: String,
       require: true
     },
-    room:{
-      tpye: Number
-    },
+    
     elec_use:{
       type: Number
     },
     roomate:{
-      type:Number
+      type: Number
     },
     Status:{
       type: Boolean
     },
+    room:{
+      tpye: Number
+      
+    },
     image :{
       type: String
     }
+    
         
   })
 
