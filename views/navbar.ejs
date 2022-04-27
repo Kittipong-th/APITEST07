@@ -1,7 +1,13 @@
 <nav>
+    
     <h2>
         <a href="/">ระบบหอพักนักศึกษา มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</a></h2>
+
     <ul>
+        <% if(user.userID == "admin"){%>
+            <li><a href="/logout"> จัดการข้อมูล </a></li>
+            <li><a >|</a></li>
+        <% } %>
         <li><a> <%= user.name %> </a></li>
         <li><a >|</a></li>
         <li><a href="/logout"#>ออกจากระบบ</a></li>

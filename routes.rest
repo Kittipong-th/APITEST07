@@ -5,15 +5,17 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "userID": "6306021630013@fitm.kmutnb.ac.th",
-    "password": "123",
-    "name": "กิตติพงษ์",
-    "elec_use":1000,
+    "userID": "6306021630001@fitm.kmutnb.ac.th",
+    "password": "pwd0001",
+    "name": "สมชาย กล้ามาก",
+    "elec_use":30,
     "roomate":4,
     "Status":false,
-    "myroom": 506,
+    "myroom": 201,
     "image" : ""
 }
+
+
 ###
 GET http://apiproject.app.ruk-com.cloud
 
@@ -22,12 +24,13 @@ POST http://apiproject.app.ruk-com.cloud/register
 Content-Type: application/json
 
 {
-    "userID": "6306021634565@fitm.kmutnb.ac.th",
-    "password": "pwd12345",
-    "name": "Bot",
-    "myroom": 417,
-    "elec_use":180,
-    "roomate":2,
+    "userID": "6306021630017@fitm.kmutnb.ac.th",
+    "password": "pwd0017",
+    "name": "ออกัส ออสก้า",
+    "elec_use":150,
+    "roomate":4,
     "Status":false,
-    "image" : ""
+    "myroom": 304,
+    "image" : "" 
 }
+
