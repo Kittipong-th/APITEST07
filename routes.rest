@@ -25,7 +25,7 @@ Content-Type: application/json
     "userID": "6306021634565@fitm.kmutnb.ac.th",
     "password": "pwd12345",
     "name": "Bot",
-    "room": 417,
+    "myroom": 417,
     "elec_use":180,
     "roomate":2,
     "Status":false,
