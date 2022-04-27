@@ -25,13 +25,13 @@ router.get('/',isLoggedIn,(req,res)=>{
 
 //create user
 router.post('/register', async (req, res) => {
-    const {userID,password,name,room,elec_use,roomate,Status,image} = req.body
+    const {userID,password,name,elec_use,myroom,roomate,Status,image} = req.body
     const passwordHash = bcrypt.hashSync(password,10);
     const user = new User({
         userID, 
         password : passwordHash,
         name,
-        room,
+        myroom,
         elec_use,
         roomate,
         Status,

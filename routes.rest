@@ -11,7 +11,7 @@ Content-Type: application/json
     "elec_use":1000,
     "roomate":4,
     "Status":false,
-    "room": 506,
+    "myroom": 506,
     "image" : ""
 }
 ###

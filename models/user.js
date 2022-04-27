@@ -16,11 +16,10 @@ const userSchema = new mongoose.Schema({
       type: String,
       require: true
     },
-    room:{
-      tpye: Number
-      
-    },
     elec_use:{
+      type: Number
+    },
+    myroom:{
       type: Number
     },
     roomate:{
