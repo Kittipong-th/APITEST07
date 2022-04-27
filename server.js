@@ -1,15 +1,19 @@
 require('dotenv').config();
 const express = require('express')
 const path = require('path')
-const session = require('express-session');
+const session = require('express-session')
+//route
 const router = require('./routes/route')
+const file = require('./routes/file')
 const app = express()
 const mongoose = require('mongoose')
 
 const DATABASE_URL = process.env.DATABASE_URL
 mongoose.connect( DATABASE_URL,{
   useNewUrlParser : true,
-  useUnifiedTopology : true
+  useUnifiedTopology : true,
+  useCreateIndex : true,
+  useFindAndModify: false 
 })
 const db = mongoose.connection
 db.on('error', (error) => console.error(error))
@@ -33,7 +37,8 @@ app.use(
     saveUninitialized: false
   })
 )
-app.use(router)
+app.use('/',router)
+app.use('/files',file)
 
 //เอาค่าstatic ของเว็บมาใช้พวก css img
 app.use(express.static(path.join(__dirname,'public')))

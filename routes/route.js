@@ -3,7 +3,9 @@ const router = express.Router()
 
 //เรียกใช้งานโมเดล
 const User = require('../models/user')
-const multer = require('multer')
+
+//hash password
+const bcrypt = require('bcrypt')
 const { redirect, get } = require('express/lib/response')
 
 //middleware
@@ -14,53 +16,7 @@ const isLoggedIn = (req, res, next) => {
     next()
 }
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, './public/img/users')
-    },
-    filename: (req, file, cb) => {
-        cb(null, 'file-' + Date.now() + '.' +
-        file.originalname.split('.')[file.originalname.split('.').length-1])}
-})
-const upload = multer({ storage: storage })
-
-
-
-//upload image and save in db
-router.post('/upload',upload.single('ktb'),(req,res) => {
-  console.log(req.file)
-  const user_id = req.body.update_id
-  const user = {
-      image:req.file.filename
-  }
-  User.findByIdAndUpdate(user_id,user,{userFindAndModify:false}).exec(err=>{
-        res.redirect('/elec_payment_ktb2')
-  })
-})
-
-router.post('/upload-ktp',upload.single('ktp'),(req,res) => {
-    console.log(req.file)
-    const user_id = req.body.update_id
-    const user = {
-        image:req.file.filename
-    }
-    User.findByIdAndUpdate(user_id,user,{userFindAndModify:false}).exec(err=>{
-        res.redirect('/elec_payment_ktp2')
-    })
-})
- 
-router.post('/upload-scb',upload.single('scb'),(req,res) => {
-    console.log(req.file)
-    const user_id = req.body.update_id
-    const user = {
-        image:req.file.filename
-    }
-    User.findByIdAndUpdate(user_id,user,{userFindAndModify:false}).exec(err=>{
-        res.redirect('/elec_payment_scb2')
-    })
-})
   
-
 //index
 router.get('/',isLoggedIn,(req,res)=>{
     res.render('index',{user:req.session.user})
@@ -69,16 +25,19 @@ router.get('/',isLoggedIn,(req,res)=>{
 
 //create user
 router.post('/register', async (req, res) => {
+    const {userID,password,name,room,elec_use,roomate,Status,image} = req.body
+    const passwordHash = bcrypt.hashSync(password,10);
     const user = new User({
-        userID: req.body.userID,
-        password : req.body.password,
-        name : req.body.name,
-        room : req.body.room,
-        elec_use:req.body.elec_use,
-        roomate:req.body.roomate,
-        Status: req.body.Status,
-        image : req.body.image
+        userID, 
+        password : passwordHash,
+        name,
+        room,
+        elec_use,
+        roomate,
+        Status,
+        image
     })
+    
     try {
         const newUser = await user.save()
         res.status(201).json(newUser)
@@ -100,6 +59,8 @@ router.post('/login',async (req, res) => {
         userID,
         password
     })
+    console.log(userID)
+    console.log(password)
     if (user){
         req.session.user = user
         return res.render('index',{user})
