@@ -41,7 +41,7 @@
 
         <div class="container content-right info ">
             <div class="block-1 ">
-                <h3>ห้อง <%= user.room %></h3>
+                <h3>ห้อง <%= user.myroom %></h3>
             </div>
         </div>
 
@@ -87,7 +87,7 @@
             </div>
               
             <form method="post" action="/upload" enctype="multipart/form-data">  
-                    <input type="text" name="update_id" value="<%= user._id %>" > 
+                    <input type="hidden" name="update_id" value="<%= user._id %>" > 
                     <input type="file" class="form-control" name="ktb" id="myfile" value="<%= user._id %>" required> 
                     <label for="myfile" class="btn red-box">อัพโหลดไฟล์<img src="img/upload.png"   class="img size-pic3 upload"></label>
                        

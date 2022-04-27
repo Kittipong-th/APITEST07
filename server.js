@@ -4,7 +4,6 @@ const path = require('path')
 const session = require('express-session')
 //route
 const router = require('./routes/route')
-const file = require('./routes/file')
 const app = express()
 const mongoose = require('mongoose')
 
@@ -38,7 +37,7 @@ app.use(
   })
 )
 app.use('/',router)
-app.use('/files',file)
+
 
 //เอาค่าstatic ของเว็บมาใช้พวก css img
 app.use(express.static(path.join(__dirname,'public')))
