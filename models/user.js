@@ -16,7 +16,10 @@ const userSchema = new mongoose.Schema({
       type: String,
       require: true
     },
-    
+    room:{
+      tpye: Number
+      
+    },
     elec_use:{
       type: Number
     },
@@ -26,14 +29,9 @@ const userSchema = new mongoose.Schema({
     Status:{
       type: Boolean
     },
-    room:{
-      tpye: Number
-      
-    },
     image :{
       type: String
     }
-    
         
   })
 
