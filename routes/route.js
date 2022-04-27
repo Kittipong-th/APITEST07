@@ -98,16 +98,14 @@ router.post('/login',async (req, res) => {
     const{userID,password} = req.body
     const user = await User.findOne({
         userID
-      
     })
-    console.log(userID)
-    console.log(password)
-
     if (user){
         const isCorrect = bcrypt.compareSync(password,user.password) 
         if(isCorrect){
             req.session.user = user
             return res.render('index',{user})
+        }else{
+            return res.render('login')
         }
     }else{
         return res.render('login')
