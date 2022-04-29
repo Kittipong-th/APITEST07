@@ -92,6 +92,12 @@ router.post('/register', async (req, res) => {
 router.get('/login',(req,res)=>{
     res.render('login')
 })
+router.get('/dbuser',(req,res) => {
+    User.find().exec((err,user)=>{
+        res.render('datauser',{user:user})
+    })
+    
+})
 
 //login post
 router.post('/login',async (req, res) => {
@@ -110,6 +116,28 @@ router.post('/login',async (req, res) => {
     }else{
         return res.render('login')
     }
+})
+
+router.post('/update-status',(req,res)=>{
+    const updateID = req.body.update
+    const user = {
+        Status:true
+    }
+    
+    User.findByIdAndUpdate(updateID,user,{userFindAndModify:false}).exec(err=>{
+        res.redirect('/dbuser')
+    })
+})
+
+router.post('/reset-status',(req,res)=>{
+    const user = {
+        Status:false,
+        image:""
+    }
+
+    User.updateMany(user).exec(err=>{
+        res.redirect('/dbuser')
+    })
 })
 
 router.get('/repass',(req,res)=>{

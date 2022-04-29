@@ -68,7 +68,7 @@ nav ul li a:hover{
 
 
 .container{
-    max-width: 1800px;
+    max-width: 2000px;
     margin: 40px 50px 0px;
     padding: 10px;
     position: relative;
@@ -120,9 +120,11 @@ nav ul li a:hover{
 h1{
     font-family: 'Kanit', sans-serif;   
     font-size: 20px;
-    color: black;
+    color: rgb(255, 255, 255);
     font-weight: 900;
 }
+
+
 h2{
     font-family: 'Kanit', sans-serif;   
     font-size: 30px;
@@ -144,6 +146,13 @@ h4{
     color: black;
     font-weight: 900;
     
+}
+
+h5{
+    font-family: 'Kanit', sans-serif;   
+    font-size: 15px;
+    color: black;
+    font-weight: 800;
 }
 
 p{
@@ -173,6 +182,10 @@ p c-red{
     text-decoration: none;
 }
 
+.btn-black{
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+}
 .box{
    
     color: white;
@@ -201,6 +214,12 @@ p c-red{
   transform: translateY(4px);
 }
 
+.black-box{
+    background-color: rgb(62, 61, 61);
+    color: white;
+    margin : 0px 30px;
+    
+}
 
 .icon{
     position: absolute;
@@ -245,7 +264,7 @@ p c-red{
 .content-center{
     justify-content: center;
     align-items: center;
-    margin: 0px;
+    margin: 0px 300px;
 }
 
 .info{
@@ -254,6 +273,13 @@ p c-red{
     margin-top: 1px;
     background-color: white;
 }
+
+.bg-black{
+
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
+
 
 .color{
     background-color: #d8d8d8;
@@ -342,8 +368,46 @@ a{
 
 .block-3{
     text-align: center;
-    
+    display: flex;
+    align-items: center;
 }
+
+
+.mt{
+    margin:100px 300px 0px;
+}
+.m{
+    margin: 0px;
+    width: 150px;
+}
+
+.m-button{
+    margin: 0px 15px;
+    width: 80px;
+    height: 30%;
+    border:0px;
+    border-radius: 10px;
+}
+
+.m-reset{
+    margin: 0px ;
+    width: 200px;
+    height: 50%;
+    border:0px;
+    border-radius: 10px;
+}
+
+.m1{
+    margin: 0px;
+    width: 250px;
+}
+.m-line{
+    margin: 0px;
+    font-size: 25px;
+    align-items: center;
+}
+
+
 .container-2 .block-1{
     justify-content: space-between;
 }
@@ -372,6 +436,20 @@ footer{
     width: auto;
     height: 100px;
 }
+
+.red{
+    background: #ed213a;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+}
+.green{
+    background: #12A72A;
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+}
+
 
 
 @media screen and (max-width: 1087px){

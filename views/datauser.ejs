@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload File </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+      <%- include('navbar') %>
+      <div class="container content mt">
+        <div class="block-1">
+            <h2>จัดการข้อมูล</h2>
+        </div>
+        <div class="block-1">
+          <h5>ค่าไฟประจำเดือนมีนาคม ปี 2565</h5>
+        </div>
+      </div>
+      
+
+      <div class="container content info bg-black">
+        <div class="block-3">
+          <h1 class="m1"> เลขประจำตัว </h1><div class="m-line">|</div>
+            <h1 class="m"> ชื่อ-นามสกุล</h1><div class="m-line">|</div>
+            <h1 class="m">จำนวนหน่วยที่ใช้ </h1><div class="m-line">|</div>
+            <h1 class="m">ห้อง </h1><div class="m-line">|</div>
+            <h1 class="m">ต้องจ่าย </h1><div class="m-line">|</div>
+            <h1 class="m">สถานะ </h1><div class="m-line">|</div>
+            <h1 class="m">รูปภาพ </h1><div class="m-line">|</div>
+           
+        </div>
+        
+      </div>
+    
+      <div class="container-3 content ">
+        <div class="line"></div>
+      </div>
+      
+      <% Object.values(user).forEach(function(user) {%>
+        <% if(user.myroom == 0) {%>
+        
+        <% } else {%>
+          <div class="container content info">
+            <div class="block-3">
+              <h5 class="m1"> <%= user.userID %> </h5><div class="m-line">|</div>
+              <h5 class="m"> <%= user.name %> </h5><div class="m-line">|</div>
+              <h5 class="m"><%= user.elec_use %>  </h5><div class="m-line">|</div>
+              <h5 class="m"> <%= user.myroom %> </h5><div class="m-line">|</div>
+              <h5 class="m"><%= ((user.elec_use/user.roomate)*4).toFixed(0) %> บาท </h5><div class="m-line">|</div>
+              <% if(user.Status == false) {%>
+                <h5 class="m red"><%= user.Status %></h5><div class="m-line">|</div>
+              <% } else {%>
+                <h5 class="m green"><%= user.Status %></h5><div class="m-line">|</div>
+              <% } %>
+
+              <h5 class="m"><img width="100px" src="/img/users/<%= user.image %>"> </h5><div class="m-line">|</div>
+            <form method="post" action="/update-status">
+                  <input type="hidden" name="update" value="<%= user._id %>" > 
+                  <button type="submit" class="m-button black-box" >ยืนยัน </button>
+            </form>  
+            </div> 
+          </div>
+            
+          <div class="container-3 content ">
+            <div class="line"></div>
+          </div>
+        <% } %>
+      
+      <% }) %>
+      <form method="post" action="/reset-status">
+        <div class="block-3 content-center mt">
+          <button type="submit" class="btn btn-black" >Reset </button>
+        </div>  
+      </form>   
+      
+  </body>
+  <footer></footer>
+</html>

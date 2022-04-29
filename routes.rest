@@ -24,13 +24,13 @@ POST http://apiproject.app.ruk-com.cloud/register
 Content-Type: application/json
 
 {
-    "userID": "6306021630017@fitm.kmutnb.ac.th",
-    "password": "pwd0017",
-    "name": "ออกัส ออสก้า",
-    "elec_use":150,
-    "roomate":4,
-    "Status":false,
-    "myroom": 304,
+    "userID": "admin",
+    "password": "pwdadmin",
+    "name": "Admin",
+    "elec_use":0,
+    "roomate":0,
+    "Status":true,
+    "myroom": 0,
     "image" : "" 
 }
 

@@ -98,12 +98,14 @@
                 <p><c-red><%= ((user.elec_use/user.roomate)*4).toFixed(0) %> บาท</c-red></p>
             </div>
         </div>
-
-        <div class="container content-center">
-            <div class="block-1">
-               <p><a href="/elec_payment" class="box red-box">ชำระเงิน</a></p> 
+        <% if(user.Status == true){%>
+        <% }else{ %>
+            <div class="container content-center">
+                <div class="block-1">
+                   <p><a href="/elec_payment" class="box red-box">ชำระเงิน</a></p> 
+                </div>
             </div>
-        </div>
+        <% } %>
     </body>
     <footer>    
     </footer>
