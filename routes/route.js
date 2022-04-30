@@ -165,27 +165,28 @@ router.get('/repass-end',(req,res)=>{
 
 
 router.post('/repass-end',async (req,res) => {
+    const password = req.body.password
     const repass = req.body.new_password
     const repass1 = req.body.new_password1
     const Updatepass = await User.findOne({
-        _id : req.body.update_id,
-        password : req.body.password
+        _id : req.body.update_id
     })
-   
-    if(Updatepass){
+    const isCorrect = bcrypt.compareSync(password,Updatepass.password) 
+    if(isCorrect){
         if(repass == repass1){
-            const update = {
-                password:repass
-            }
-            User.findByIdAndUpdate(req.body.update_id,update,{userFindAndModify:false}).exec(err=>{
+            const passwordHash = bcrypt.hashSync(repass,10)
+            
+            User.findByIdAndUpdate(Updatepass,{password:passwordHash},{userFindAndModify:false}).exec(err=>{
                 res.redirect('/repass-sucess')
             })
         
         }else{
             console.log("password not same")
+            res.render('repassword-end',{user:Updatepass._id})
         }
     }else{
         console.log("Password inccorrect")
+        res.render('repassword-end',{user:Updatepass._id})
     }
    
 })
