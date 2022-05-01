@@ -92,12 +92,7 @@ router.post('/register', async (req, res) => {
 router.get('/login',(req,res)=>{
     res.render('login')
 })
-router.get('/dbuser',(req,res) => {
-    User.find().exec((err,user)=>{
-        res.render('datauser',{user:user})
-    })
-    
-})
+
 
 //login post
 router.post('/login',async (req, res) => {
@@ -118,12 +113,16 @@ router.post('/login',async (req, res) => {
     }
 })
 
+
+router.get('/dbuser',(req,res) => {
+    User.find().exec((err,user)=>{
+        res.render('datauser',{user:user})
+    })   
+})
+
 router.post('/update-status',(req,res)=>{
     const updateID = req.body.update
-    const user = {
-        Status:true
-    }
-    
+    const user = {Status:true}
     User.findByIdAndUpdate(updateID,user,{userFindAndModify:false}).exec(err=>{
         res.redirect('/dbuser')
     })
@@ -134,7 +133,6 @@ router.post('/reset-status',(req,res)=>{
         Status:false,
         image:""
     }
-
     User.updateMany(user).exec(err=>{
         res.redirect('/dbuser')
     })
@@ -159,10 +157,9 @@ router.post('/repass',async (req,res) => {
 
 
 router.get('/repass-end',(req,res)=>{
-    res.render('repassword-end',{user})
+    res.render('repassword-end')
 
 })
-
 
 router.post('/repass-end',async (req,res) => {
     const password = req.body.password
